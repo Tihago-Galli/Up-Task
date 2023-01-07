@@ -1,0 +1,2 @@
+.filtros{margin-top:2rem;background-color:#fff;border-radius:1rem;padding:2rem}@media (min-width:768px){.filtros .filtros-inputs{display:flex;align-items:center;gap:3rem}}.filtros h2{color:#2563eb;font-size:2.8rem}@media (min-width:768px){.filtros h2{margin:0}}.filtros .campo{margin-bottom:2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}@media (min-width:768px){.filtros .campo{margin-bottom:0}}.filtros input[type=radio]{accent-color:#2563eb;width:1.6rem;cursor:pointer;height:1.6rem}
+/*# sourceMappingURL=filtros.css.map */

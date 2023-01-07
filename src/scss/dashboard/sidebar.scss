@@ -1,0 +1,127 @@
+@use '../base/variable' as v;
+@use '../base/mixins' as m;
+
+.sidebar{
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, v.$azul 0%, lighten(v.$azul, 10%) 100%);
+    transition-property: opacity;
+    transition-duration: 500ms;
+
+    &.mostrar{
+        opacity: 1;
+        height: 100%;
+        padding: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, v.$azul 0%, lighten(v.$azul, 10%) 100%);
+        @include m.tablet {
+            display:none;
+        }
+    }
+
+    @include m.tablet {
+        display:block;
+        height: 100%;
+        opacity: 1;
+        padding: 2rem;
+        }
+
+       .contenedor-sidebar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        h2{
+            color: v.$blanco;
+            margin: 0;
+            text-align: center;
+        }
+
+        .cerrar-menu {
+            display: flex;
+            justify-content: center;
+            height: 6rem;
+            width: 6rem;
+            cursor: pointer;
+
+        }
+       } 
+
+  
+
+    .sidebar-nav{margin-top: 5rem;
+                 a{ @include m.sidebar-link(v.$azul);
+                    
+                    @include m.tablet {
+                        font-size: 1.2rem;
+                        margin-bottom: 1.5rem;
+                        text-align: left;
+                    }
+                }
+                }
+    .cerrar-session-mobile{
+        margin-top: 10rem;
+        border-radius: .5rem;
+        background-color: v.$negro;
+        text-align: center;
+        padding: 2rem;
+         
+        .cerrar-session{
+            color: v.$blanco;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        @include m.tablet {
+            display:none
+        }
+                }           
+
+    &.Proyectos{
+        .sidebar-nav{
+            a{ @include m.sidebar-link(v.$cyan);
+                    
+                @include m.tablet {
+                    font-size: 1.2rem;
+                    margin-bottom: 1.5rem;
+                    text-align: left;
+                }
+            }
+        }
+        background: linear-gradient(to bottom, v.$cyan 0%, lighten(v.$cyan, 10%) 100%);
+    }
+
+    &.Perfil, &.Password{
+        .sidebar-nav{
+            a{ @include m.sidebar-link(v.$verde);
+                    
+                @include m.tablet {
+                    font-size: 1.2rem;
+                    margin-bottom: 1.5rem;
+                    text-align: left;
+                }
+            }
+        }
+        background: linear-gradient(to bottom, v.$verde 0%, lighten(v.$verde, 10%) 100%);
+    }
+
+    &.Crear{
+        .sidebar-nav{
+            a{ @include m.sidebar-link(v.$indigo);
+                    
+                @include m.tablet {
+                    font-size: 1.2rem;
+                    margin-bottom: 1.5rem;
+                    text-align: left;
+                }
+            }
+        }
+        background: linear-gradient(to bottom, v.$indigo 0%, lighten(v.$indigo, 10%) 100%);
+    }
+    
+  
+   
+}

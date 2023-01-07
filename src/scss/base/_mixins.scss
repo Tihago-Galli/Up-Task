@@ -1,0 +1,88 @@
+@use 'variable' as v;
+
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+
+@mixin textoDegradado($color){
+    background: linear-gradient(to right, $color 0%, lighten($color, 30%) 100%);
+    color: transparent;
+    background-clip: text;
+    font-size: 7rem;
+    text-align: center;
+
+    @include tablet {
+        font-size: 10rem;
+            
+        
+    }
+}
+
+@mixin boton($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1.5rem 4rem;
+    color: $colorTexto;
+    font-size: 1.6rem;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    @include tablet {
+        width: auto;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin sidebar(){
+
+}
+@mixin sidebar-link($color){
+      display: block;
+        margin-bottom: 2rem;
+        color: v.$blanco;
+        padding: .7rem;
+       transition: all 300ms ease;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2.4rem;
+        text-align: center;
+
+        &:hover{
+            background-color: darken($color, 20%);
+            border-radius: .5rem;
+        }
+
+        &.activo{
+            background-color: darken($color, 20%);
+            border-radius: .5rem;
+        }
+        
+}

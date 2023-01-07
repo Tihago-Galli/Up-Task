@@ -1,0 +1,141 @@
+@use '../base/variable' as v;
+@use '../base/mixins' as m;
+
+
+@media (prefers-color-scheme: dark){
+    
+    $grisOscuro: #2c2c3b;
+
+    body{
+        background-color: $grisOscuro;
+    }
+
+    .tagline, 
+    .formulario label, 
+    .login .acciones p, 
+    .crear .acciones p,
+    .olvide .acciones p{
+        color: v.$blanco;
+    }
+
+    .descripcion-pagina,
+    .formulario .campo input, 
+    .nombre-pagina, .no-proyectos, .no-tareas{
+        color: v.$grisClaro
+    }
+
+    .formulario input:not([type=submit]){
+        background-color: darken($grisOscuro, 5%);
+
+        &::placeholder{
+            color: darken(v.$blanco, 35%);
+        }
+    }
+
+
+.alertas.error{
+    background-color: v.$blanco;
+}
+
+.sidebar, .sidebar.Perfil, .sidebar.Proyectos, .sidebar.Crear, .sidebar.Cambiar, .sidebar.mostrar{
+
+    background: linear-gradient(180deg,$grisOscuro 0, darken(v.$grisClaro, 80%));
+    @include m.tablet {
+        background: linear-gradient(to bottom, darken($grisOscuro, 5%) 0%, darken($grisOscuro, 5%) 100%);
+    }
+
+    .sidebar-nav{margin-top: 5rem;
+        a{ @include m.sidebar-link(lighten(v.$lila, 15%));
+           
+           @include m.tablet {
+               font-size: 1.2rem;
+               margin-bottom: 1.5rem;
+               text-align: left;
+           }
+       }
+       }
+}   
+
+.barra-mobile.Proyectos, .barra-mobile.Perfil, .barra-mobile.Cambiar, .barra-mobile{
+    background-color: darken($grisOscuro, 5%);
+}
+
+.barra, .barra.Perfil, .barra.Proyectos, .barra.Crear, .barra.Cambiar{
+    background-color: darken($grisOscuro, 5%);
+
+    p{ color: v.$lila;
+
+        span{ color: v.$blanco;
+        }
+    }
+   
+    .cerrar-sesion{
+       @include m.boton(v.$lila, v.$blanco)
+        
+       
+    }
+}
+
+.dashboard{
+    background-color: $grisOscuro;
+
+    .enlace{
+        color: v.$grisClaro;
+
+        &:hover{
+            color: darken(v.$grisClaro, 10%);
+        }
+    }
+    .formulario input:not([type=submit]){
+        background-color: darken($grisOscuro, 5%);
+
+        &::placeholder{
+            color: darken(v.$blanco, 35%);
+        }
+    }
+
+   .formulario .guardar-perfil, .formulario .crear-proyecto{
+        @include m.boton(v.$lila, v.$blanco);
+    }
+
+    .modal .formulario{
+        legend{
+            color: v.$grisClaro;
+        }
+        background-color: $grisOscuro;
+    }
+
+    .modal .formulario .submit-nueva-tarea, .agregar-tarea{
+        background-color: v.$lila;
+    }
+}
+
+.listado-proyectos .proyecto{
+    background: linear-gradient(90deg,darken($grisOscuro, 5%) 0, lighten($grisOscuro, 5%));
+}
+
+.listado-tareas .tarea{
+    background: lighten($grisOscuro, 10%);
+    border: none;
+    border-radius: .5rem;
+    padding: 0 2rem;
+    p{
+        color: v.$blanco;
+    }
+}
+
+.filtros{
+    background-color: lighten($grisOscuro, 10%);
+
+    h2, label{
+        color: v.$blanco;
+    }
+    input[type="radio"]{
+        accent-color: v.$naranja;
+    }
+}
+
+
+
+}
+
